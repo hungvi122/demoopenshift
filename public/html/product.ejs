@@ -1,0 +1,218 @@
+<meta name="google-signin-client_id" content="810197696083-e9u560l9k894rljpeci5qblnuo900e7u.apps.googleusercontent.com">
+<!-- breadcrumbs -->
+	<div class="breadcrumbs" ng-controller="ProductCtrl">
+		<div class="container">
+			<ol class="breadcrumb breadcrumb1  wow slideInLeft" >
+				<li><a href="/#/home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+				<li class="active">Detail product/{{currentProduct.name}}</li>
+			</ol>
+		</div>
+	</div>
+<div class="singleshoping" ng-controller="ProductCtrl" >
+
+<div class="container">
+<div class="col-md-12"	>
+	<div class="col-md-5 grid">		
+		<div class="flexslider">
+			  <ol class="slides flex-control-nav flex-control-thumbs" >
+			    <li data-thumb="{{img.link}}" ng-repeat="img in currentProduct.listImage">
+			        <div class="thumb-image"> <img src="{{img.link}}" data-imagezoom="true" class="img-responsive"> </div>
+			    </li>
+			    
+			  </ol>
+		</div>
+	</div>	
+<div class="col-md-7 singleshoping-top-in">
+				<div class="span_2_of_a1 simpleCart_shelfItem">
+		<h3>{{currentProduct.name}}</h3>
+		<div class="fb-like" data-href="http://localhost:3000/#/product/{{currentProduct._id}}" data-layout="button" data-action="like" data-show-faces="true" data-share="false"></div>
+	<div class="fb-share-button" data-href="http://localhost:3000/#/product/{{currentProduct._id}}" data-layout="button_count" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A3000%2F%23%2Fhome&amp;src=sdkpreparse">Share</a></div>
+	
+	<!-- Đặt thẻ này vào phần đầu hoặc ngay trước thẻ đóng phần nội dung của bạn. -->
+<script src="/js/platform.js">
+  
+</script>
+<div style="clear:both;"></div>
+<!-- Đặt thẻ này vào nơi bạn muốn nút chia sẻ kết xuất. -->
+<div class="g-plus" data-action="share" data-annotation="none" data-height="24" data-href="http://localhost:3000/#/product/{{currentProduct._id}}"></div>
+
+<!-- Đặt lệnh gọi kết xuất này vào chỗ thích hợp. -->
+<script type="text/javascript">gapi.plus.go();</script>
+		<div class="price_singleshoping">
+		
+		  <span class="reducedfrom item_price">{{currentProduct.costCurent}}</span>
+		 <div class="clearfix"></div>
+		 
+		 <div class="clearfix"></div>
+		</div>
+		<h4 class="quick">Quick Overview:</h4>
+		<p class="quick_desc">{{currentProduct.descreption}} </p>
+		<div class="info-product">
+				<div class="number-bids"><span class="label-number label label-default">Bids:</span> 
+				<span class="label label-info text-number-bids">{{currentProduct.numberBID}}</span></div>
+				
+				<div class="user-bids" >
+					<span class="label label-default user-name ">
+						 {{currentProduct.idUSer}}
+					</span>
+					<div class="price-product label label-info">
+						 {{currentProduct.costCurent}}$
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<div class="timer-server label label-info" >
+					
+					<div  class="clockdiv{{currentProduct._id}}" >
+						<span >
+						<span class="days"></span>
+						<span class="smalltext">:</span>
+					  </span>
+					  <span>
+						<span class="hours"></span>
+						<span class="smalltext">:</span>
+					  </span>
+					  <span>
+						<span class="minutes"></span>
+						<span class="smalltext">:</span>
+					  </span>
+					  <span>
+						<span class="seconds"></span>
+						
+					  </div>
+					</div>
+					<br>
+					 
+					<div class="notify{{currentProduct._id}}"></div>  
+					 
+					<form class="send-price" ng-submit="submitAuction(currentProduct._id)" ng-show="checkLogin(currentProduct.isBID)">
+						<input size="35" id="{{currentProduct._id}}" class="newPrice" style="width:60%">
+						<button type="submit" name="Submit" class="btn btn-primary" style="width: 30%; display:inline-block !important">Đấu Giá</button> 
+					</form>
+
+				</div>
+				<div class="form-product">
+					<div class="price-pay-now label label-info">
+						{{currentProduct.price}}
+					</div>
+					<div class="submit-pay btn btn-primary" ng-controller="auctionCtrl" ng-click="submitAuction2(currentProduct._id, currentProduct.price)" ng-show="checkLogin(currentProduct.isBID)" >
+						BID Now
+					</div>
+				</div>
+	</div>
+</div>
+			
+</div>
+<!----->
+
+
+	</div>
+	</div>
+		
+
+<div class="single-related-products" ng-controller="ProductCtrl">
+		<div class="container">
+			<h3 class="animated wow slideInUp animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInUp;">Related Products</h3>
+			<p class="est animated wow slideInUp animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInUp;">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+				deserunt mollit anim id est laborum.</p>
+			<div class="new-collections-grids">
+			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="item in productRelative">
+				<a href="#" class="img-product"> <img src="{{item.image}}" class="img-responsive img-responsive-product" alt="">
+				</a>
+					<div class="title label label-info">{{item.name}}</div>
+					<div class="info-product">
+						<div class="number-bids"><span class="label-number label label-default">Bids:</span> <span class="label label-info text-number-bids">{{item.numberBID}}</span></div>
+						
+						<div class="user-bids">
+							<span class="label label-default user-name ">
+								{{item.idUSer}}
+							</span>
+							<div class="price-product label label-info">
+								{{item.costCurent}}
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						
+					</div>
+				
+
+			</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="clearfix"> </div>	
+		<div class="three-com">
+			<h3 class="wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">3 Comment <span>on</span> <label>Donec volutpat ligula non dapibus volutpat</label></h3>
+			<div class="tom-grid wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+				<div class="tom">
+					<img src="images/co.png" alt=" " />
+				</div>
+				<div class="tom-right">
+					<div class="Hardy">
+						<h4>Tom Hardy</h4>
+						<p><label>10 September 2015</label></p>
+					</div>
+					<div class="reply">
+						<a href="#">Reply</a>
+					</div>
+					<div class="clearfix"> </div>
+					<p class="lorem">There are many variations of passages of Lorem Ipsum available,
+					but the majority have suffered alteration in some form, by injected humour, 
+					or randomised words which don't.</p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="tom-grid humour wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+				<div class="tom">
+					<img src="images/co.png" alt=" " />
+				</div>
+				<div class="tom-right">
+					<div class="Hardy">
+						<h4>Prad Pitt</h4>
+						<p><label>10 September 2015</label></p>
+					</div>
+					<div class="reply">
+						<a href="#">Reply</a>
+					</div>
+					<div class="clearfix"> </div>
+					<p class="lorem">There are many variations of passages of Lorem Ipsum available,
+					but the majority have suffered alteration in some form, by injected humour, 
+					or randomised words which don't.</p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="tom-grid wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+				<div class="tom">
+					<img src="images/co.png" alt=" " />
+				</div>
+				<div class="tom-right">
+					<div class="Hardy">
+						<h4>Tom Cruis</h4>
+						<p><label>10 September 2015</label></p>
+					</div>
+					<div class="reply">
+						<a href="#">Reply</a>
+					</div>
+					<div class="clearfix"> </div>
+					<p class="lorem">There are many variations of passages of Lorem Ipsum available,
+					but the majority have suffered alteration in some form, by injected humour, 
+					or randomised words which don't.</p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<div class="leave-comment wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+			<h3>Leave your comment</h3>
+			<p>Suspendisse tempor tellus sed nisl semper, quis condimentum turpis pharetra.</p>
+			<form>
+				<input type="text" placeholder="Name" required=" ">			           					   
+				<input type="text" placeholder="Email" required=" ">
+				<input type="text" placeholder="Your Website" required=" ">
+				<textarea placeholder="Message" required=" "></textarea>
+				<input type="submit" value="Add Comment">
+				<div class="clearfix"> </div>
+				</br>
+			</form>
+		</div>
+	</div>
